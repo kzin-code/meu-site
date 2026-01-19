@@ -11,6 +11,7 @@ body {
   font-family: Arial, sans-serif;
   background: #f2f2f2;
 }
+
 .container {
   max-width: 420px;
   margin: auto;
@@ -18,58 +19,95 @@ body {
   min-height: 100vh;
   padding: 20px;
 }
+
 .produto {
   text-align: center;
 }
+
 .produto img {
   width: 100%;
-  border-radius: 12px;
+  border-radius: 14px;
+  margin-bottom: 15px;
 }
+
+h2 {
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+.subtitulo {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 15px;
+}
+
 .preco {
-  margin: 15px 0;
+  margin: 20px 0;
 }
+
 .preco-antigo {
   color: #999;
   text-decoration: line-through;
   font-size: 14px;
 }
+
 .preco-novo {
   color: #2e7d32;
-  font-size: 32px;
+  font-size: 34px;
   font-weight: bold;
 }
-.selos {
-  display: flex;
-  justify-content: space-between;
-  margin: 15px 0;
+
+.preco-novo span {
+  font-size: 16px;
+  font-weight: normal;
 }
-.selo {
-  background: #f8f8f8;
-  padding: 10px;
-  border-radius: 8px;
-  font-size: 12px;
-}
+
 .contador {
   background: #fff3cd;
   color: #856404;
   padding: 12px;
-  border-radius: 8px;
+  border-radius: 10px;
   text-align: center;
   font-weight: bold;
   margin: 15px 0;
 }
+
+.selos {
+  display: flex;
+  justify-content: space-between;
+  gap: 6px;
+  margin: 15px 0;
+}
+
+.selo {
+  flex: 1;
+  background: #f8f8f8;
+  padding: 10px 6px;
+  border-radius: 8px;
+  font-size: 12px;
+}
+
 .botao {
   display: block;
   width: 100%;
-  text-align: center;
-  background: #2962ff;
+  background: linear-gradient(135deg, #2962ff, #0039cb);
   color: #fff;
-  padding: 16px;
-  border-radius: 12px;
+  padding: 18px;
+  border-radius: 14px;
   font-size: 18px;
   font-weight: bold;
   text-decoration: none;
   margin-top: 10px;
+}
+
+.botao:active {
+  transform: scale(0.98);
+}
+
+.rodape {
+  margin-top: 12px;
+  font-size: 12px;
+  color: #777;
 }
 </style>
 </head>
@@ -78,17 +116,15 @@ body {
 
 <div class="container">
   <div class="produto">
-    <img 
-  src="https://via.placeholder.com/400x300"
-  alt="banner"
-  style="width:100%; border-radius:14px; margin-bottom:15px;"
->
+
+    <img src="https://via.placeholder.com/400x300" alt="Produto">
 
     <h2>Produto Exclusivo</h2>
+    <div class="subtitulo">Oferta por tempo limitado</div>
 
     <div class="preco">
       <div class="preco-antigo">De R$ 29,90</div>
-      <div class="preco-novo">R$ 2,99</div>
+      <div class="preco-novo">R$ 2,99 <span>à vista</span></div>
     </div>
 
     <div class="contador">
@@ -104,22 +140,32 @@ body {
     <a href="agendamento.html" class="botao">
       GARANTIR AGORA
     </a>
+
+    <div class="rodape">
+      🔐 Pagamento 100% seguro
+    </div>
+
   </div>
 </div>
 
 <script>
-let tempo = 600; // 10 minutos
+let tempo = 600;
 
-setInterval(() => {
+const intervalo = setInterval(() => {
+  if (tempo <= 0) {
+    clearInterval(intervalo);
+    document.getElementById("tempo").innerText = "00:00";
+    return;
+  }
+
   let min = Math.floor(tempo / 60);
   let seg = tempo % 60;
   document.getElementById("tempo").innerText =
     `${min}:${seg < 10 ? "0" : ""}${seg}`;
+
   tempo--;
 }, 1000);
 </script>
 
 </body>
 </html>
-
-

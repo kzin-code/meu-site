@@ -6,66 +6,7 @@
 <title>Assinatura Premium</title>
 
 <style>
-/* POST BLOQUEADO (FT2 STYLE) */
-.post.locked {
-  position: relative;
-}
-
-.post.locked .post-img {
-  filter: blur(8px);
-  opacity: 0.6;
-}
-
-.lock-overlay {
-  position: absolute;
-  inset: 0;
-  background: #f4efe9;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.lock-card {
-  background: #f7f2ec;
-  width: 80%;
-  padding: 22px 18px;
-  border-radius: 18px;
-  text-align: center;
-  color: #333;
-  box-shadow: 0 10px 30px rgba(0,0,0,.25);
-}
-
-.lock-card .lock-icon {
-  font-size: 32px;
-  margin-bottom: 10px;
-}
-
-.lock-info {
-  font-size: 14px;
-  color: #666;
-  margin-bottom: 6px;
-}
-
-.lock-price {
-  font-size: 20px;
-  font-weight: bold;
-  margin: 8px 0 14px;
-}
-
-.lock-btn {
-  display: block;
-  background: #ff8a65;
-  color: #fff;
-  padding: 12px;
-  border-radius: 30px;
-  font-weight: bold;
-  text-decoration: none;
-}
-
-.lock-btn:hover {
-  filter: brightness(1.1);
-}
---------------
+/* ===== RESET ===== */
 body{
   margin:0;
   font-family: Arial, sans-serif;
@@ -73,6 +14,7 @@ body{
   color:#fff;
 }
 
+/* ===== CONTAINER ===== */
 .container{
   max-width:420px;
   margin:auto;
@@ -80,13 +22,13 @@ body{
   min-height:100vh;
 }
 
-/* CAPA */
+/* ===== CAPA ===== */
 .capa{
   height:180px;
   background:url("perfio.png") center/cover no-repeat;
 }
 
-/* PERFIL */
+/* ===== PERFIL ===== */
 .perfil{
   padding:15px;
 }
@@ -113,7 +55,7 @@ body{
   color:gold;
   font-size:16px;
 }
-  
+
 .user{
   color:#aaa;
   font-size:14px;
@@ -133,14 +75,14 @@ body{
   color:#ffcc66;
 }
 
-/* TITULOS */
+/* ===== TITULOS ===== */
 .titulo{
   padding:10px 15px;
   font-weight:bold;
   color:#ffcc66;
 }
 
-/* PLANOS */
+/* ===== PLANOS ===== */
 .plano{
   background:linear-gradient(90deg,#c49b3a,#ffcc66);
   margin:10px 15px;
@@ -153,26 +95,82 @@ body{
   text-decoration:none;
   position:relative;
   overflow:hidden;
-  transition:transform .15s ease;
 }
-.plano::after{
-  content:"";
-  position:absolute;
-  top:0;
-  left:-100%;
-  width:100%;
-  height:100%;
-  background:linear-gradient(120deg,transparent,rgba(255,255,255,.5),transparent);
-  animation:brilho 2s infinite;
-}
-@keyframes brilho{
-  to{left:100%}
-}
+
 .plano:active{
   transform:scale(.95);
 }
-.plano:hover{
-  filter:brightness(1.1);
+
+/* ===== POST ===== */
+.post{
+  margin:20px 15px;
+  border-radius:18px;
+  overflow:hidden;
+  position:relative;
+  background:#000;
+}
+
+/* IMAGEM */
+.post-img{
+  width:100%;
+  height:420px;
+  object-fit:cover;
+  display:block;
+}
+
+/* ===== POST BLOQUEADO (FT2) ===== */
+.post.locked .post-img{
+  filter:blur(8px);
+  opacity:.6;
+}
+
+.lock-overlay{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(244,239,233,.95);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.lock-card{
+  background:#f7f2ec;
+  width:80%;
+  padding:22px 18px;
+  border-radius:18px;
+  text-align:center;
+  color:#333;
+  box-shadow:0 10px 30px rgba(0,0,0,.25);
+}
+
+.lock-icon{
+  font-size:32px;
+  margin-bottom:10px;
+}
+
+.lock-info{
+  font-size:14px;
+  color:#666;
+  margin-bottom:6px;
+}
+
+.lock-price{
+  font-size:20px;
+  font-weight:bold;
+  margin:8px 0 14px;
+}
+
+.lock-btn{
+  display:block;
+  background:#ff8a65;
+  color:#fff;
+  padding:12px;
+  border-radius:30px;
+  font-weight:bold;
+  text-decoration:none;
 }
 </style>
 </head>
@@ -187,14 +185,13 @@ body{
     <div class="avatar"></div>
 
     <div class="nome">
-       Maethe vic 
-      <span class="verificado">✔</span>
+      Maethe vic <span class="verificado">✔</span>
     </div>
 
     <div class="user">@maethevictoria</div>
 
     <div class="bio">
-      Oii sou a Maethe, 🥰 Amo fazer sexting, avaliações e vídeos customizados! Aqui vc encontra meus nudes, pézinhos, masturbação e muito mais! 🤭🤭 To online todo dia! Me deixa ser sua ninfetinha favorita? 😈💕
+      Oii sou a Maethe, 🥰 Amo fazer sexting, avaliações e vídeos customizados!
     </div>
 
     <div class="stats">
@@ -222,26 +219,26 @@ body{
     <span>6 meses (10% off)</span>
     <span>R$ 87,46</span>
   </a>
-<div class="post locked">
-  <img src="ft1.jpg" class="post-img">
 
-  <div class="lock-overlay">
-    <div class="lock-card">
-      <div class="lock-icon">🔒</div>
+  <!-- POST BLOQUEADO -->
+  <div class="post locked">
+    <img src="ft1.jpg" class="post-img">
 
-      <div class="lock-info">🎥 1 conteúdo exclusivo</div>
-
-      <div class="lock-price">R$ 55,00</div>
-
-      <a href="agendamento.html" class="lock-btn">
-        Desbloquear conteúdo
-      </a>
+    <div class="lock-overlay">
+      <div class="lock-card">
+        <div class="lock-icon">🔒</div>
+        <div class="lock-info">🎥 1 conteúdo exclusivo</div>
+        <div class="lock-price">R$ 55,00</div>
+        <a href="agendamento.html" class="lock-btn">Desbloquear conteúdo</a>
+      </div>
     </div>
   </div>
+
 </div>
 
 </body>
 </html>
+
 
 
 
